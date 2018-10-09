@@ -6,6 +6,7 @@ import org.springframework.cache.interceptor.BeanFactoryCacheOperationSourceAdvi
 import org.springframework.cache.interceptor.CacheInterceptor;
 import org.springframework.cache.interceptor.CacheOperationSource;
 import org.springframework.cache.interceptor.ExpireCahceInterceptor;
+import org.springframework.cache.redis.ExpirableRedisCacheWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
