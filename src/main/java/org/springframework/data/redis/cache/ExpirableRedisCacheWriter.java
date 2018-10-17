@@ -1,9 +1,9 @@
 package org.springframework.data.redis.cache;
 
-import org.springframework.cache.interceptor.CacheExpireOperation;
-import org.springframework.cache.interceptor.CacheExpireOperationManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.lang.Nullable;
+import roman.springframework.cache.interceptor.CacheExpireOperation;
+import roman.springframework.cache.interceptor.CacheExpireOperationManager;
 
 import java.time.Duration;
 

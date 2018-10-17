@@ -1,4 +1,4 @@
-package org.springframework.cache.redis;
+package roman.springframework.cache.redis;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;

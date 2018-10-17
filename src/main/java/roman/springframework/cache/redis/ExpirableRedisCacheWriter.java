@@ -1,11 +1,10 @@
-package org.springframework.cache.redis;
+package roman.springframework.cache.redis;
 
-import org.springframework.cache.interceptor.CacheExpireOperation;
-import org.springframework.cache.interceptor.CacheExpireOperationManager;
-import org.springframework.data.redis.cache.DefaultRedisCacheWriter;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.lang.Nullable;
+import roman.springframework.cache.interceptor.CacheExpireOperation;
+import roman.springframework.cache.interceptor.CacheExpireOperationManager;
 
 import java.time.Duration;
 
@@ -19,16 +18,7 @@ public class ExpirableRedisCacheWriter implements RedisCacheWriter {
 	private final RedisCacheWriter delegateRedisCacheWriter;
 
 	ExpirableRedisCacheWriter(final RedisConnectionFactory connectionFactory) {
-		this(new DefaultRedisCacheWriter(connectionFactory, Duration.ZERO));
-	}
-
-	/**
-	 * @param connectionFactory must not be {@literal null}.
-	 * @param sleepTime sleep time between lock request attempts. Must not be {@literal null}. Use {@link Duration#ZERO}
-	 *          to disable locking.
-	 */
-	ExpirableRedisCacheWriter(final RedisConnectionFactory connectionFactory, final Duration sleepTime) {
-		this(new DefaultRedisCacheWriter(connectionFactory, sleepTime));
+		this(RedisCacheWriter.lockingRedisCacheWriter(connectionFactory));
 	}
 
 	public ExpirableRedisCacheWriter(final RedisCacheWriter delegateRedisCacheWriter) {
